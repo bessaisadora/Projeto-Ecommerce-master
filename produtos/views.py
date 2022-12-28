@@ -7,13 +7,13 @@ from django.shortcuts import redirect
 
 def cadastro_usuario(request):
     if request.method == 'POST':
-        forms = UsuarioForm(request.POST)
-        if forms.is_valid():
-            forms.save()
-            forms = UsuarioForm()
+        form = UsuarioForm(request.POST)
+        if form.is_valid():
+            form.save()
+            form = UsuarioForm()
     else:
-        forms = UsuarioForm(  )
-    return render (request, 'forms.html', {'form' : forms })
+        form = UsuarioForm(  )
+    return render (request, 'forms.html', {'form' : form })
 
 
 def base (request):
